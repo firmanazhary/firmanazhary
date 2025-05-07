@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firman Azhary | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                        light: '#f8fafc',
+                        lightbg: '#f1f5f9',
+                        lightdarker: '#e2e8f0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #3b82f6;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6 }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #3b82f6;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-dot::after {
+            content: '';
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .dark .timeline-dot::after {
+            background: #0f172a;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark dark:bg-dark dark:text-light min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-lightdarker/80 dark:bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">FA</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link active text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium">About</a>
+                    <a href="#experience" class="nav-link text-sm font-medium">Experience</a>
+                    <a href="#portfolio" class="nav-link text-sm font-medium">Portfolio</a>
+                    <a href="#contact" class="nav-link text-sm font-medium">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800">
+                        <i class="fas fa-moon text-primary dark:fa-sun dark:text-yellow-400"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="p-2 rounded-md hover:bg-slate-200 dark:hover:bg-slate-800">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-lightdarker dark:bg-darker pb-3 px-4">
+            <div class="flex flex-col space-y-2">
+                <a href="#home" class="nav-link py-2 text-sm font-medium">Home</a>
+                <a href="#about" class="nav-link py-2 text-sm font-medium">About</a>
+                <a href="#experience" class="nav-link py-2 text-sm font-medium">Experience</a>
+                <a href="#portfolio" class="nav-link py-2 text-sm font-medium">Portfolio</a>
+                <a href="#contact" class="nav-link py-2 text-sm font-medium">Contact</a>
+                <div class="flex justify-between items-center pt-2">
+                    <span>Dark Mode</span>
+                    <button id="mobile-theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800">
+                        <i class="fas fa-moon text-primary dark:fa-sun dark:text-yellow-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="gradient-text">Firman Azhary</span></h1>
+                <div class="typewriter text-xl md:text-2xl mb-6">
+                    IT Teacher and Web Developer
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-lg">
+                    Passionate about creating beautiful, functional websites and sharing my knowledge with students.
+                </p>
+                <a href="#" class="inline-flex items-center px-6 py-3 bg-primary hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300">
+                    Download CV <i class="fas fa-download ml-2"></i>
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary to-purple-500 rounded-full opacity-20 blur-xl"></div>
+                    <div class="relative w-full h-full flex items-center justify-center">
+                        <img src="asset/background-hero.jpeg"
+                              alt="Firman Azhary"
+                              class="w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-4 border-primary/20 floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-lightdarker/50 dark:bg-darker/50 rounded-xl my-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 gradient-text">About Me</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-4">I'm a Web Developer</h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-6">
+                    Hello! I am a Software Engineering student at Politeknik IDN, where I am deeply passionate about learning new technologies and enhancing my programming skills. I also work as an IT teacher, guiding students in web development and other IT-related subjects.
+                </p>
+                <p class="text-slate-600 dark:text-slate-300 mb-6">
+                    As a Web Developer, I create functional and visually appealing websites. Alongside these roles, I take on freelance projects to further expand my experience in the tech industry.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+                        
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">My Skills</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">HTML/CSS</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">90%</span>
+                        </div>
+                        <div class="w-full bg-slate-300 dark:bg-slate-700 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">JavaScript</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">85%</span>
+                        </div>
+                        <div class="w-full bg-slate-300 dark:bg-slate-700 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">PHP/Laravel</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">80%</span>
+                        </div>
+                        <div class="w-full bg-slate-300 dark:bg-slate-700 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">Tailwind/Bootstrap</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">95%</span>
+                        </div>
+                        <div class="w-full bg-slate-300 dark:bg-slate-700 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium">Flutter</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400">75%</span>
+                        </div>
+                        <div class="w-full bg-slate-300 dark:bg-slate-700 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 gradient-text">My Experience</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <!-- Experience 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="bg-lightdarker/50 dark:bg-darker/50 p-6 rounded-lg shadow">
+                    <div class="flex flex-col sm:flex-row justify-between mb-2">
+                        <h3 class="text-xl font-semibold">IT Teacher</h3>
+                        <span class="text-sm text-primary font-medium">July 2023 - June 2024</span>
+                    </div>
+                    <h4 class="text-sm font-medium text-slate-600 dark:text-slate-300 mb-4">IDN Boarding School, Pamijahan Bogor</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li>Designed and developed a curriculum for web programming subjects</li>
+                        <li>Delivered effective instruction in HTML, CSS, JavaScript, as well as utilizing frameworks such as Laravel, PHP, Tailwind CSS, and Bootstrap</li>
+                        <li>Guided students in web programming projects and provided constructive feedback</li>
+                        <li>Collaborated with school staff to ensure integrated use of technology in the teaching-learning process</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="bg-lightdarker/50 dark:bg-darker/50 p-6 rounded-lg shadow">
+                    <div class="flex flex-col sm:flex-row justify-between mb-2">
+                        <h3 class="text-xl font-semibold">IT Teacher</h3>
+                        <span class="text-sm text-primary font-medium">June 2024 - Present</span>
+                    </div>
+                    <h4 class="text-sm font-medium text-slate-600 dark:text-slate-300 mb-4">Pondok Tahfizh Abu Dzar Plus, Rumpin Bogor</h4>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-300">
+                        <li>Teaching web development and basic UI/UX design to middle school students</li>
+                        <li>Designing and delivering lessons tailored to various learning levels</li>
+                        <li>Facilitating practical projects where students apply their skills in real-world web development scenarios</li>
+                        <li>Collaborating with other teachers to create an interdisciplinary learning environment</li>
+                        <li>Mentoring students on best practices in coding, design, and problem-solving</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="bg-lightdarker/50 dark:bg-darker/50 p-6 rounded-lg shadow">
+                    <div class="flex flex-col sm:flex-row justify-between mb-2">
+                        <h3 class="text-xl font-semibold">D4 Software Engineering</h3>
+                        <span class="text-sm text-primary font-medium">July 2022 - Present</span>
+                    </div>
+                    <h4 class="text-sm font-medium text-slate-600 dark:text-slate-300 mb-4">IDN Polytechnic, Bogor</h4>
+                    <p class="text-slate-600 dark:text-slate-300">
+                        Currently pursuing a degree in Software Engineering with a focus on web development and mobile application development.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 gradient-text">Latest Projects</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="bg-lightdarker/50 dark:bg-darker/50 rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="IndoTravel"
+                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">IndoTravel</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        IndoTravel is a modern and responsive landing page for a travel website, showcasing beautiful destinations across Indonesia.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">HTML</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CSS</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- Project 2 -->
+            <div class="bg-lightdarker/50 dark:bg-darker/50 rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="Explore Tracking Sentul"
+                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Explore Tracking Sentul</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        Involved in the development and design of the Explore Tracking Sentul project, contributing to both the technical and creative aspects of the application.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Laravel</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">PHP</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- Project 3 -->
+            <div class="bg-lightdarker/50 dark:bg-darker/50 rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542816417-0983675ab178?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                          alt="Web Al-qur'an"
+                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">Web Al-qur'an</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        The Al-Qur'an Digital website is a comprehensive online platform designed to provide users with easy access to the verses of the Holy Qur'an along with their corresponding audio recitations.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">HTML</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CSS</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- Project 4 -->
+            <div class="bg-lightdarker/50 dark:bg-darker/50 rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="LAKETOBA"
+                          class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">LAKETOBA</h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-4">
+                        Explore Danau Toba is a travel website dedicated to showcasing the beauty and attractions of Lake Toba, one of Indonesia's most stunning natural wonders.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Tailwind</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">JavaScript</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">PHP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-lightdarker/50 dark:bg-darker/50 rounded-xl my-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 gradient-text">Contact Me!</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">Get in Touch</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="p-3 bg-primary/10 rounded-full mr-4">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Full Name</h4>
+                            <p class="text-slate-600 dark:text-slate-300">Muhammad Firman Azhary</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="p-3 bg-primary/10 rounded-full mr-4">
+                            <i class="fas fa-envelope text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Email Address</h4>
+                            <p class="text-slate-600 dark:text-slate-300">azharyoke948@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="p-3 bg-primary/10 rounded-full mr-4">
+                            <i class="fas fa-phone text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Mobile number</h4>
+                            <p class="text-slate-600 dark:text-slate-300">(+62) 821-1097-0434</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="p-3 bg-primary/10 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Location</h4>
+                            <p class="text-slate-600 dark:text-slate-300">Jl. Pramuka kec Bajenis, Tebing tinggi, Sumatra Utara</p>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="mt-8">
+                    <h4 class="font-medium mb-4">Connect with me</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="p-3 bg-primary/10 hover:bg-primary/20 rounded-full transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="md:w-1/2">
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium">Full Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium">Email Address</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="phone" class="block mb-2 text-sm font-medium">Mobile number</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary" placeholder="+62 123 4567 8910">
+                    </div>
+                    <div>
+                        <label for="subject" class="block mb-2 text-sm font-medium">Email Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary" placeholder="How can I help you?">
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 text-sm font-medium">Your Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-primary focus:border-primary" placeholder="Write your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 bg-primary hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-lightdarker dark:bg-darker">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold gradient-text">FA</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-slate-600 dark:text-slate-300 hover:text-primary transition">Home</a>
+                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-primary transition">About</a>
+                    <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-primary transition">Experience</a>
+                    <a href="#portfolio" class="text-slate-600 dark:text-slate-300 hover:text-primary transition">Portfolio</a>
+                    <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-300 dark:border-slate-800 text-center text-slate-500 dark:text-slate-400">
+                <p>Copyright © 2023 by azhary | All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (isDark) {
+                themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+                mobileThemeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon text-primary"></i>';
+                mobileThemeToggle.innerHTML = '<i class="fas fa-moon text-primary"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+            mobileThemeToggle.innerHTML = '<i class="fas fa-sun text-yellow-400"></i>';
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggle.innerHTML = '<i class="fas fa-moon text-primary"></i>';
+            mobileThemeToggle.innerHTML = '<i class="fas fa-moon text-primary"></i>';
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
