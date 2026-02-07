@@ -29,28 +29,61 @@ export default function Portfolio() {
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-50" style={{ scaleX }} />
 
       {/* --- NAVIGATION --- */}
-      <nav className={`fixed w-full z-40 transition-all ${
-        darkMode ? 'bg-[#0a0a0a]/80' : 'bg-white/80'
-      } backdrop-blur-md border-b ${darkMode ? 'border-slate-900' : 'border-slate-100'}`}>
-        <div className="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-          <a href="#" className="text-lg font-bold tracking-tight uppercase">
-           FIRMAN AZHARY<span className="text-blue-600">.</span>
-          </a>
-          
-          <div className="hidden md:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest">
-            {['Home', 'About', 'Experience', 'Services', 'Contact'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-600 transition-colors">{item}</a>
-            ))}
-            <button onClick={() => setDarkMode(!darkMode)} className="ml-4 p-2 rounded-full border border-slate-700">
-              {darkMode ? <Sun size={14} className="text-yellow-500"/> : <Moon size={14}/>}
-            </button>
-          </div>
+   {/* --- NAVIGATION --- */}
+<nav className={`fixed w-full z-50 transition-all ${
+  darkMode ? 'bg-[#0a0a0a]/80' : 'bg-white/80'
+} backdrop-blur-md border-b ${darkMode ? 'border-slate-900' : 'border-slate-100'}`}>
+  <div className="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="#" className="text-lg font-bold tracking-tight uppercase">
+      FIRMAN AZHARY<span className="text-blue-600">.</span>
+    </a>
+    
+    {/* Desktop Menu */}
+    <div className="hidden md:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest">
+      {['Home', 'About', 'Experience', 'Services', 'Contact'].map((item) => (
+        <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-blue-600 transition-colors">{item}</a>
+      ))}
+      <button onClick={() => setDarkMode(!darkMode)} className="ml-4 p-2 rounded-full border border-slate-700 hover:bg-slate-800 transition-colors">
+        {darkMode ? <Sun size={14} className="text-yellow-500"/> : <Moon size={14}/>}
+      </button>
+    </div>
 
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+    {/* Mobile Button Toggle */}
+    <div className="md:hidden flex items-center gap-4">
+      <button onClick={() => setDarkMode(!darkMode)} className="p-2">
+        {darkMode ? <Sun size={20} className="text-yellow-500"/> : <Moon size={20}/>}
+      </button>
+      <button className="text-blue-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
+    </div>
+  </div>
+
+  {/* --- MOBILE DROPDOWN MENU --- */}
+  <AnimatePresence>
+    {isMenuOpen && (
+      <motion.div 
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "auto" }}
+        exit={{ opacity: 0, height: 0 }}
+        className={`md:hidden border-t overflow-hidden ${darkMode ? 'bg-[#0a0a0a] border-slate-900' : 'bg-white border-slate-100'}`}
+      >
+        <div className="flex flex-col p-6 space-y-4 text-center text-[12px] font-bold uppercase tracking-[0.2em]">
+          {['Home', 'About', 'Experience', 'Services', 'Contact'].map((item) => (
+            <a 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              onClick={() => setIsMenuOpen(false)} // Menutup menu setelah klik
+              className="py-3 hover:text-blue-600 transition-colors"
+            >
+              {item}
+            </a>
+          ))}
         </div>
-      </nav>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</nav>
 
       {/* --- HERO SECTION --- */}
       <section id="home" className="pt-48 pb-32 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-20">
