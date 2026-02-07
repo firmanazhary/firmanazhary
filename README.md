@@ -1,16 +1,28 @@
-# React + Vite
+# Firman Azhary — Digital Architect & Educator 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my professional repository! I am a **Full Stack Developer** and **Technical Educator** dedicated to bridging the gap between complex code and intuitive digital experiences.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
+* **Frontend:** React.js, Tailwind CSS, Framer Motion
+* **Backend:** Laravel, PHP, MySQL
+* **Creative Tools:** Figma, Canva, CapCut
+* **Others:** WordPress CMS, RESTful APIs, Git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Professional Overview
+* **Technical Developer:** Building scalable, high-performance web applications with a focus on clean architecture and SEO-friendly structures.
+* **Technical Educator:** Designing and delivering modern IT curriculums, mentoring 100+ students in UI/UX design and modern web standards.
+* **Digital Creator:** Crafting engaging visual content and social media strategies that drive brand identity.
 
-## React Compiler
+## 🚀 Projects Highlights
+* **Web Systems:** Custom dashboards and functional management systems using React and Laravel.
+* **Education Modules:** Comprehensive learning materials for middle-high school students.
+* **Branding:** Company profile websites and creative digital content for various business sectors.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📬 Connect with Me
+* **LinkedIn:** [linkedin.com/in/MuhammadFirmanAzhary](https://linkedin.com/in/MuhammadFirmanAzhary)
+* **GitHub:** [github.com/firmanazhary](https://github.com/firmanazhary)
+* **Instagram:** [@firmanazhary](https://instagram.com/firmanazhary)
+* **Email:** [azharyoke948@gmail.com](mailto:azharyoke948@gmail.com)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+*Crafted with passion using React + Vite + Tailwind CSS.*
