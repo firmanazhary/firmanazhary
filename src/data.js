@@ -1,13 +1,13 @@
-import { Github, Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Instagram, Code2, Layout, Video, Mail, MapPin, Phone } from "lucide-react";
 
 export const PERSONAL_INFO = {
   name: "Firman Azhary",
   role: "Full Stack Developer & Technical Educator",
-  description: "Bridging the gap between complex code and intuitive learning. I craft scalable web solutions while empowering the next generation of tech leaders.",
-  location: "Tebing Tinggi, Sumatra Utara, Indonesia",
+  description: "Crafting robust web solutions and empowering future developers. Specializing in high-performance applications with a creative edge.",
+  location: "North Sumatra, Indonesia",
   email: "azharyoke948@gmail.com",
   phone: "+62 822-4643-1454",
-  cvLink: "/asset/cv_azhary.pdf", // Pastikan file ada di folder public/asset
+  cvLink: "/asset/MUHAMMAD FIRMAN AZHARY_cv.pdf",
   socials: [
     { icon: Github, link: "https://github.com/firmanazhary", label: "GitHub" },
     { icon: Linkedin, link: "https://www.linkedin.com/in/muhammad-firman-azhary-351202247/", label: "LinkedIn" },
@@ -16,54 +16,54 @@ export const PERSONAL_INFO = {
 };
 
 export const SKILLS = [
-  { name: "HTML & CSS", level: 95, color: "bg-orange-500" },
-  { name: "JavaScript (ES6+)", level: 85, color: "bg-yellow-400" },
-  { name: "React & Tailwind", level: 90, color: "bg-cyan-400" },
-  { name: "PHP & Laravel", level: 80, color: "bg-red-500" },
-  { name: "Flutter (Mobile)", level: 75, color: "bg-blue-400" },
+  { name: "React & Tailwind", level: 90, color: "bg-blue-600" },
+  { name: "PHP & Laravel", level: 85, color: "bg-indigo-600" },
+  { name: "UI/UX Design", level: 80, color: "bg-slate-800" },
+  { name: "Content Strategy", level: 85, color: "bg-rose-500" },
+];
+
+export const SERVICES = [
+  {
+    title: "Web Development",
+    description: "End-to-end development of scalable applications using React, Laravel, and modern CMS solutions.",
+    icon: Code2,
+    tags: ["Fullstack", "Performance", "Clean Code"]
+  },
+  {
+    title: "Technical Mentorship",
+    description: "Developing industry-standard IT curriculums and providing hands-on coding mentorship for students.",
+    icon: Layout,
+    tags: ["Education", "Curriculum", "Leadership"]
+  },
+  {
+    title: "Digital Creative",
+    description: "Crafting engaging visual content and user interfaces that resonate with modern digital audiences.",
+    icon: Video,
+    tags: ["Figma", "CapCut", "Branding"]
+  }
 ];
 
 export const EXPERIENCE = [
   {
+    role: "Freelance Web Developer",
+    company: "Self-Employed",
+    period: "2024 - Present",
+    location: "Remote",
+    description: [
+      "Building dynamic web applications with React.js and Laravel.",
+      "Developing high-converting WordPress sites for business clients.",
+      "Consulting on SEO and performance optimization strategies."
+    ],
+  },
+  {
     role: "IT Teacher & Curriculum Developer",
     company: "Pondok Tahfizh Abu Dzar Plus",
-    period: "June 2024 - Present",
-    description: "Spearheading the web development curriculum for middle school students, focusing on modern UI/UX principles and practical coding skills. Mentoring students to build real-world deployed projects.",
-  },
-  {
-    role: "IT Teacher",
-    company: "IDN Boarding School",
-    period: "July 2023 - June 2024",
-    description: "Designed and delivered comprehensive modules on HTML, CSS, JS, and Laravel. Facilitated an integrated learning environment combining religious studies with cutting-edge technology.",
-  },
-  {
-    role: "Software Engineering Student",
-    company: "IDN Polytechnic",
-    period: "July 2022 - Present",
-    description: "Pursuing a Bachelor of Applied Science (D4), specializing in scalable web architectures and mobile application development.",
-  },
-];
-
-export const PROJECTS = [
-  {
-    title: "Abu Dzar Tahfizh Plus",
-    description: "A comprehensive academic portal showcasing Qur’an memorization programs and student activities. Features a responsive design with seamless registration flows.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    image: "/asset/project-1.png", // Ganti dengan path gambarmu
-    link: "https://indotravel-sooty.vercel.app/",
-  },
-  {
-    title: "Terrawatt Electrical",
-    description: "Professional company profile for an electrical service provider. Built to establish digital presence with a focus on service showcasing and lead generation.",
-    tags: ["WordPress", "CMS", "Responsive"],
-    image: "/asset/project-2.png",
-    link: "https://terrawattelectrical.com/",
-  },
-  {
-    title: "Digital Al-Qur'an",
-    description: "An interactive spiritual platform providing easy access to Holy Qur'an verses with high-quality audio recitations and translation features.",
-    tags: ["API Integration", "Audio Streaming", "UI/UX"],
-    image: "/asset/project-3.png",
-    link: "https://quran-view.vercel.app/",
+    period: "2024 - Present",
+    location: "Bogor, Indonesia",
+    description: [
+      "Designed a comprehensive Web Dev learning path for students.",
+      "Mentoring 50+ students in mastering modern web technologies.",
+      "Optimizing academic workflows through custom-built internal tools."
+    ],
   },
 ];
