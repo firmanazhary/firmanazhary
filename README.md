@@ -11,12 +11,14 @@ Welcome to my professional repository! I am a **Full Stack Developer** and **Tec
 ## 📋 Professional Overview
 * **Technical Developer:** Building scalable, high-performance web applications with a focus on clean architecture and SEO-friendly structures.
 * **Technical Educator:** Designing and delivering modern IT curriculums, mentoring 100+ students in UI/UX design and modern web standards.
+* **Freelance Web Developer:** Providing end-to-end digital solutions, from high-converting WordPress sites to complex dynamic web applications for diverse business sectors.
 * **Digital Creator:** Crafting engaging visual content and social media strategies that drive brand identity.
 
 ## 🚀 Projects Highlights
-* **Web Systems:** Custom dashboards and functional management systems using React and Laravel.
-* **Education Modules:** Comprehensive learning materials for middle-high school students.
-* **Branding:** Company profile websites and creative digital content for various business sectors.
+* **Full-Stack Systems:** Custom dashboards and functional management systems engineered with React.js and Laravel.
+* **Freelance Success:** Delivered 10+ web projects with a focus on performance optimization, SEO, and mobile-first responsive design.
+* **Education Modules:** Comprehensive learning materials for middle-high school students covering the latest web standards.
+* **Branding:** Company profile websites and creative digital content that successfully enhance client digital presence.
 
 ## 📬 Connect with Me
 * **LinkedIn:** [linkedin.com/in/MuhammadFirmanAzhary](https://linkedin.com/in/MuhammadFirmanAzhary)
