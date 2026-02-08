@@ -58,12 +58,25 @@ export const EXPERIENCE = [
   {
     role: "IT Teacher & Curriculum Developer",
     company: "Pondok Tahfizh Abu Dzar Plus",
-    period: "2024 - Present",
+    period: "June 2024 - Present",
     location: "Bogor, Indonesia",
     description: [
-      "Designed a comprehensive Web Dev learning path for students.",
-      "Mentoring 50+ students in mastering modern web technologies.",
-      "Optimizing academic workflows through custom-built internal tools."
+      "Designed and delivered professional learning paths for HTML, CSS, JavaScript, and React.js development.",
+      "Mentored students in UI/UX design and WordPress deployment to create industry-standard web platforms.",
+      "Served as a Technical Competition Mentor, guiding students through national-level IT competitions and hackathons.",
+      "Oversaw end-to-end project mentorship, ensuring students successfully build and deploy functional web applications."
+    ],
+  },
+  {
+    role: "Information Technology Teacher",
+    company: "IDN Boarding School",
+    period: "July 2023 - June 2024",
+    location: "Bogor, Indonesia",
+    description: [
+      "Developed a full-stack curriculum covering PHP, Laravel, Tailwind CSS, and Bootstrap frameworks.",
+      "Implemented Computational Thinking methodologies to strengthen students' logical reasoning and problem-solving skills.",
+      "Acted as a Competition Strategist and Mentor, leading student teams to participate in various IT-related contests.",
+      "Facilitated hands-on project-based learning, focusing on code integrity, aesthetics, and modern web standards."
     ],
   },
 ];

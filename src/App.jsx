@@ -106,7 +106,53 @@ export default function Portfolio() {
           <img src={gambarHero} className="relative rounded-3xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover aspect-[4/5] shadow-2xl" alt="Profile" />
         </div>
       </section>
+{/* --- ABOUT SECTION --- */}
+<section id="about" className="py-32 px-6 max-w-6xl mx-auto border-t border-slate-900">
+  <div className="grid md:grid-cols-2 gap-20 items-center">
+    <div className="space-y-8">
+      <h2 className="text-blue-600 font-bold tracking-[0.3em] uppercase text-[10px]">About Me</h2>
+      <h3 className={`text-4xl md:text-5xl font-medium tracking-tighter leading-tight ${darkMode ? 'text-white' : 'text-black'}`}>
+        Bridging the gap between <span className="text-blue-600 italic">complex code</span> and intuitive learning.
+      </h3>
+      <p className="text-slate-500 leading-relaxed text-lg">
+        With over 3 years in the tech industry, I don't just build applications; I architect digital experiences and empower the next generation of developers. 
+      </p>
+      
+      {/* Mini Stats for Designable Look */}
+      <div className="grid grid-cols-2 gap-8 pt-6">
+        <div>
+          <p className="text-3xl font-bold text-blue-600">100+</p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-2">Students Mentored</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-blue-600">3+</p>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-2">Years Experience</p>
+        </div>
+      </div>
+    </div>
 
+    <div className={`p-10 rounded-[40px] border ${darkMode ? 'bg-[#0f0f0f] border-slate-900' : 'bg-slate-50 border-slate-200'} space-y-8`}>
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600">Technical Proficiency</p>
+      {SKILLS.map((skill, i) => (
+        <div key={i} className="space-y-3">
+          <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest">
+            <span className={darkMode ? 'text-slate-300' : 'text-slate-700'}>{skill.name}</span>
+            <span className="text-blue-600">{skill.level}%</span>
+          </div>
+          <div className={`h-[2px] w-full ${darkMode ? 'bg-slate-800' : 'bg-slate-200'} rounded-full overflow-hidden`}>
+            <motion.div 
+              initial={{ width: 0 }} 
+              whileInView={{ width: `${skill.level}%` }} 
+              transition={{ duration: 1.5, ease: "circOut" }} 
+              className="h-full bg-blue-600" 
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+{/* about  end*/}
       {/* --- SERVICES (DESIGNABLE CARDS) --- */}
       <section id="services" className={`py-32 px-6 ${darkMode ? 'bg-[#0f0f0f]' : 'bg-slate-50'}`}>
         <div className="max-w-6xl mx-auto">
